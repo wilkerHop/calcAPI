@@ -1,0 +1,19 @@
+{
+  "name": "calc_api",
+  "version": "1.0.0",
+  "description": "Calculator rest API",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wilkerHop/calcAPI.git"
+  },
+  "author": "Wilker Ribeiro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wilkerHop/calcAPI/issues"
+  },
+  "homepage": "https://github.com/wilkerHop/calcAPI#readme"
+}
