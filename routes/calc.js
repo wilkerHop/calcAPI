@@ -39,9 +39,13 @@ router.get('/:calc/:x/:y', (req, res) => {
 		case 'split':
 			result = x / y;
 			break;
+		case '√':
+		case 'sqrt':
+			result = Math.pow(x, 1 / y);
+			break;
 		default:
 			return res.send({
-				err: 'Operation not known'
+				err: 'Operation \'' + calc + '\' not known'
 			})
 	}
 	res.send({
