@@ -74,7 +74,7 @@ url = ``` https://calculation-api.herokuapp.com/long/:/29289984423798437.0438342
 ```json
 {
  "wrn": "The result is a string. You shold parse it.",
- "result": "3.108339389056e-8"
+ "result": "3.108339389056e-8"3.5.2
 }
 ```
 Se não se importar com o arredondamento, você pode mandar os valores longos, porém a api vai retornar um warning sobre a situação.
@@ -133,5 +133,5 @@ e ela está rodando no seu localhost na porta 3000 ou na sua plataforma as-a-ser
 
 + Aceitar nth valores;
 + tratar erros lançados quando resultados maiores que o ```long/``` pode suportar;
-+ Enviar um resultado em number na rota ```long/{soma}```;
++ Enviar um resultado em number na rota ```long/{calc}```;
 + Add métodos de machine learning.
