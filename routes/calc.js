@@ -68,12 +68,12 @@ router.get('/:calc/:x/:y', (req, res) => {
 		default:
 			z.err = 'Operation \'' + calc + '\' not known.';
 	}
-//	console.log
+	//	console.log
 	res.send(z)
 })
 router.get('/long/:calc/:x/:y', (req, res) => {
 	console.log(req.params)
-	
+
 	var BigNumber = require('bignumber.js');
 	var z = {};
 
@@ -82,21 +82,21 @@ router.get('/long/:calc/:x/:y', (req, res) => {
 			err: 'Params given are not number type.'
 		})
 	}
-	
+
 	var x = new BigNumber(req.params.x)
 	var y = new BigNumber(req.params.y)
 	var aux = new BigNumber(1)
 	var calc = req.params.calc
 
-	console.log(x)
-	console.log(y)
+	console.log('x: ', x.length)
+	console.log('y: ', y.length)
 
 	switch (calc) {
 		case '+':
 		case 'soma':
 		case 'plus':
 		case 'add':
-			z.wrn = 'The result is an string. You shold parse it.'
+			z.wrn = 'The result is a string. You shold parse it.'
 			z.result = x.plus(y); // + y;
 			break;
 		case '-':
@@ -104,33 +104,40 @@ router.get('/long/:calc/:x/:y', (req, res) => {
 		case 'menos':
 		case 'minus':
 		case 'less':
-			z.result = x - y;
+			z.wrn = 'The result is a string. You shold parse it.'
+			z.result = x.sub(y);
 			break;
 		case '*':
-		case 'multi':
+		case 'x':
+		case 'mul':
 		case 'mult':
 		case 'times':
-			z.result = x * y;
+			z.wrn = 'The result is a string. You shold parse it.'
+			z.result = x.mul(y);
 			break;
 		case ':':
 		case 'div':
 		case 'take':
 		case 'split':
-			z.result = x / y;
+			z.wrn = 'The result is a string. You shold parse it.'
+			z.result = x.div(y);
 			break;
 		case '√':
 		case 'root':
 		case 'raiz':
-			z.result = Math.pow(x, 1 / y);
+			z.wrn = 'The result is a string. You shold parse it.'
+			z.result = x.pow(x, aux.div(y));
 			break;
 		case '^':
 		case 'exp':
+		case 'elev':
+			z.wrn = 'The result is a string. You shold parse it.'
 			z.result = x.pow(y);
 			break;
 		default:
 			z.err = 'Operation \'' + calc + '\' not known.';
 	}
-	console.log(z)
+	// console.log(z)
 	res.send(z)
 })
 

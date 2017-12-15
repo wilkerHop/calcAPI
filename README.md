@@ -22,7 +22,8 @@ A soma pode ser acionada pelos seguintes nomes:
 ### Multiplicação
 A soma pode ser acionada pelos seguintes nomes:
 + ```*```
-+ ```multi```
++ ```x```
++ ```mul```
 + ```mult```
 + ```times```
 ### Divisão
@@ -46,21 +47,21 @@ A soma pode ser acionada pelos seguintes nomes:
 url = ``` https://calculation-api.herokuapp.com/+/2/3 ```
 ```json
 {
-"result": 5
+ "result": 5
 }
 ```
 #### Divisão
 url = ``` https://calculation-api.herokuapp.com/:/52.33/7.5 ```
 ```json
 {
-"result": 6.977333333333333
+ "result": 6.977333333333333
 }
 ```
 #### Raiz
 url = ``` https://calculation-api.herokuapp.com/√/27/3 ```
 ```json
 {
-"result": 3
+ "result": 3
 }
 ```
 ## Troubleshooting
@@ -71,7 +72,8 @@ Se realmente for necessário obter um valor mais apurado, insira a rota ```long/
 url = ``` https://calculation-api.herokuapp.com/long/:/29289984423798437.04383428093/942303293099948028324932.290044 ```
 ```json
 {
-"result": 3.1083393890561e-8
+ "wrn": "The result is a string. You shold parse it.",
+ "result": "3.108339389056e-8"
 }
 ```
 Se não se importar com o arredondamento, você pode mandar os valores longos, porém a api vai retornar um warning sobre a situação.
@@ -79,25 +81,25 @@ Se não se importar com o arredondamento, você pode mandar os valores longos, p
 url = ``` https://calculation-api.herokuapp.com/:/29289984423798437.04383428093/942303293099948028324932.290044 ```
 ```json
 {
-"wrn": "Params given are too high, the result is not going to be too accurate",
-"result": 3.1083393890561e-8
+ "wrn": "Params given are too high, the result is not going to be too accurate",
+ "result": 3.1083393890561e-8
 }
 ```
 ### NaN
 Caso um dos valores dados começar com um caractere não numérico, a API vai retornar um error. Isso conta para a ```long/``` também.
 #### Exemplo
 url = ``` https://calculation-api.herokuapp.com/times/qiA7299/22 ```
-```
+```json
 {
-"err": "Params given are not number type."
+ "err": "Params given are not number type."
 }
 ```
 Mas, se começar com um número, a API só processará ele até encontrar um não número.
 #### Exemplo
 url = ``` https://calculation-api.herokuapp.com/plus/9d333/11pp22 ```
-```
+```json
 {
-"result": 20
+ "result": 20
 }
 ```
 
@@ -123,11 +125,12 @@ ou
 ```
 node app
 ```
-e ela está rodando na porta 3000 ou na setada pela sua plataforma as-a-service, como o Heroku.
+e ela está rodando no seu localhost na porta 3000 ou na sua plataforma as-a-service, como o Heroku, já setada para a porta padrão.
 
 
 # #todo
 
 + Aceitar nth valores;
-+ Enviar um resultado em number na rota ```long/{soma}```
-+ Add métodos de machine learning
++ tratar erros lançados quando resultados maiores que o ```long/``` pode suportar;
++ Enviar um resultado em number na rota ```long/{soma}```;
++ Add métodos de machine learning.
