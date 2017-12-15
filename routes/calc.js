@@ -5,20 +5,12 @@ router.get('/:calc/:x/:y', (req, res) => {
 
 	var z = {};
 
-	// console.log('x int: ', req.params.x.split('.')[0].length)
-	// console.log('x dot: ', req.params.x.split('.')[1].length)
-	// console.log('y int: ', req.params.y.split('.')[0].length)
-	// console.log('y dot: ', req.params.y.split('.')[1].length)
-
-	// console.log(req.params.x.split('.')[0].length / req.params.x.split('.')[1].length)
-	// console.log(req.params.y.split('.')[0].length / req.params.y.split('.')[1].length)
-
-	if (req.params.x.length > 16 ||
-		req.params.y.length > 16)
+	if (req.params.x.replace(/\D/g,'').length > 16 ||
+		req.params.y.replace(/\D/g,'').length > 16)
 		z.wrn = 'Params given are too high, the result is not going to be too accurate.'
 
-	var x = parseFloat(req.params.x)
-	var y = parseFloat(req.params.y)
+	var x = parseFloat(req.params.x.replace(/\D/g,''))
+	var y = parseFloat(req.params.y.replace(/\D/g,''))
 	var calc = req.params.calc
 
 	console.log(x)
@@ -83,8 +75,8 @@ router.get('/long/:calc/:x/:y', (req, res) => {
 		})
 	}
 
-	var x = new BigNumber(req.params.x)
-	var y = new BigNumber(req.params.y)
+	var x = new BigNumber(req.params.x.replace(/\D/g,''))
+	var y = new BigNumber(req.params.y.replace(/\D/g,''))
 	var aux = new BigNumber(1)
 	var calc = req.params.calc
 

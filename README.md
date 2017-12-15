@@ -135,3 +135,5 @@ e ela está rodando no seu localhost na porta 3000 ou na sua plataforma as-a-ser
 + tratar erros lançados quando resultados maiores que o ```long/``` pode suportar;
 + Enviar um resultado em number na rota ```long/{calc}```;
 + Add métodos de machine learning.
+
+###### pas
