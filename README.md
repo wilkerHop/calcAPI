@@ -41,6 +41,7 @@ A soma pode ser acionada pelos seguintes nomes:
 A soma pode ser acionada pelos seguintes nomes:
 + ```^```
 + ```exp```
++ ```elev```
 
 ## Exemplos
 #### Soma
