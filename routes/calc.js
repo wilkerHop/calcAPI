@@ -37,6 +37,7 @@ router.get('/:calc/:x/:y', (req, res) => {
 			z.result = x - y;
 			break;
 		case '*':
+		case 'x':
 		case 'multi':
 		case 'mult':
 		case 'times':
